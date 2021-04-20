@@ -1,0 +1,14 @@
+Flask==1.1.0
+RPi.GPIO
+ST7735
+ads1015
+fonts
+font-roboto
+ltr559
+numpy
+pillow
+pimoroni-bme280
+pms5003
+requests
+smbus
+sounddevice
