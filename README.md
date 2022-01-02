@@ -1,17 +1,19 @@
 # Enviro+API
-This is a hacked together flask API for reading data from the [Pimoroni Enviro+
+ This is a hacked together flask API for reading data from the [Pimoroni Enviro+
 pHat](https://shop.pimoroni.com/products/enviro).
 
 ## History
 I saw this hat on [adafruit](https://www.adafruit.com/) and thought it looked
 cool, so I bought one.  I like graphs, so I decided to build a dashboard and
-alerting system for all the metrics available from this hat using the TICK
-stack.  I built this simple API for telegraf to gather data from using the HTTP
-plugin.
+alerting system for the metrics available from this hat using the TICK
+stack.  I built this simple API for pulling data into [influxdb](https://www.influxdata.com/)
+and then graphing with [grafana](https://grafana.com/).
+
+![Screenshot from Grafana](grafana_screenshot.png)
 
 ## Why?
-LOL, I have no idea, this just sounded fun.  I guess it would send me a slack
-message if my house was on fire too, so that's cool.
+LOL, I have no idea, this just sounded fun.  I guess I could configure it to
+send me a slack message if my house was on fire?
 
 ## Installation and setup.
 It is assumed that you have already installed the [Pimoroni library for the
@@ -32,3 +34,4 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+```./run.sh```

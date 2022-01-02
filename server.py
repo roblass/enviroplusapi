@@ -2,7 +2,6 @@
 
 # much of this code is based on (stolen from) the examples from pimoroni
 
-import time
 import logging
 
 from flask import Flask, jsonify
@@ -17,7 +16,7 @@ try:
 except ImportError:
     from smbus import SMBus
 
-from bme280 import BME280, load_calibration_params
+from bme280 import BME280
 
 app = Flask(__name__)
 
@@ -79,20 +78,4 @@ def get_humidity():
 
     response =  {"humidity": humidity}
     logging.info(f"Response sent {response}")
-    return jsonify(response)
-
-@app.route('/comparison')
-def get_comparison():
-    port = 1
-    address = 0x76
-    bus = SMBus(port)
-
-    calibration_params = load_calibration_params(bus, address)
-
-    # the sample method will take a single reading and return a
-    # compensated_reading object
-    data = bme280.sample(bus, address, calibration_params)
-    temp, pressure, humidity = get_temp(), get_pressure(), get_humidity()
-
-    response =  {"temp": temp, "pressure": pressure, "humidity": humidity, "ctemp": data.temperature, "cpressure": data.pressure, "chumidity": data.humidity}
     return jsonify(response)
